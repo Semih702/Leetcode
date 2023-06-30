@@ -1,20 +1,18 @@
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
-        def generate(alist,n):
+        def generate(alist,n,op=0,cl=0):
             combinations=[]
             if not n:
-                number1=alist.count("(")
-                number2=alist.count(")")
-                return [alist+")"*(number1-number2)]
+                return [alist+")"*(op-cl)]
             
 
             if not alist:
-                combinations.extend(generate("(",n-1))
+                combinations.extend(generate("(",n-1,op+1,cl))
             else:
                 print(alist,n)
-                combinations.extend(generate(alist+"(",n-1))
-                if alist.count("(")>alist.count(")"):
-                    combinations.extend(generate(alist+")",n))
+                combinations.extend(generate(alist+"(",n-1,op+1,cl))
+                if op>cl:
+                    combinations.extend(generate(alist+")",n,op,cl+1))
             return combinations
         
         
