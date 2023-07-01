@@ -9,7 +9,7 @@ class Solution:
         current=time[0]
 
         for i in time[1:]:
-            if current and i>current:
+            if i>current:
                 fleet+=1
                 current=i
         return fleet
