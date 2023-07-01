@@ -7,7 +7,7 @@ class Solution:
         
         fleet=1
         current=time[0]
-        print(time)
+
         for i in time[1:]:
             if current and i>current:
                 fleet+=1
