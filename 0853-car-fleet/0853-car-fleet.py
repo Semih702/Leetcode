@@ -7,9 +7,10 @@ class Solution:
         current=(target-position[0])/speed[0]
 
         for i,j in zip(position[1:],speed[1:]):
-            if current and (target-i)/j>current:
+            temp=(target-i)/j
+            if temp>current:
                 fleet+=1
-                current=(target-i)/j
+                current=temp
         return fleet
         
         
