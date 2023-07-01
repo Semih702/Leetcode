@@ -1,17 +1,15 @@
 class Solution:
     def carFleet(self, target: int, position: List[int], speed: List[int]) -> int:
-        time=[]
-        for i,j in enumerate(position):
-            time.append((target-j)/speed[i])
-        position,time=zip(*sorted(zip(position, time),reverse=True))
+
+        position,speed=zip(*sorted(zip(position, speed),reverse=True))
         
         fleet=1
-        current=time[0]
+        current=(target-position[0])/speed[0]
 
-        for i in time[1:]:
-            if current and i>current:
+        for i,j in zip(position[1:],speed[1:]):
+            if current and (target-i)/j>current:
                 fleet+=1
-                current=i
+                current=(target-i)/j
         return fleet
         
         
