@@ -27,14 +27,10 @@ class Solution:
                 iterr.next=list2
                 list2=list2.next
             iterr=iterr.next
-        while list1:
+        if list1:
             iterr.next=list1
-            list1=list1.next
-            iterr=iterr.next
-        while list2:
+        if list2:
             iterr.next=list2
-            list2=list2.next
-            iterr=iterr.next
         return head
             
             
