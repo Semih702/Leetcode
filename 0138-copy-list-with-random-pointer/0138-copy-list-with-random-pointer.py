@@ -17,7 +17,6 @@ class Solution:
             
             if not temp:
                 hashmap[head]=Node(head.val,head.next,head.random)
-                temp=hashmap[head]
             
             left.next=hashmap[head]
             head=head.next
