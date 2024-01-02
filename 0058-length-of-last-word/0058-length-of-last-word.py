@@ -3,12 +3,10 @@ class Solution:
         length= 0
         is_space=False
         
-        for char in s:
-            if char==" ":
-                is_space=True
-            elif is_space:
-                length = 1
-                is_space = False
-            else:
-                length +=1
+        for char in s[::-1]:   
+            if char!=" ":
+                length+=1
+            elif length>0:
+                return length
+
         return length
